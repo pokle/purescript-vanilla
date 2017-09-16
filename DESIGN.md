@@ -21,7 +21,7 @@ Can event listeners return idempotent effects?
     onClick event = ensureNodeHasNoClass event.target "checked"
     onClick event = ensureNodeHasText event.target (show (count + 1))
 
-What about when new data arrives, and you have to re-render all the items in a todo list?
+## What about when new data arrives, and you have to re-render all the items in a todo list?
 
     onData newItems oldItems = 
             concat [ fmap ensureTodoItem newItems
@@ -29,3 +29,21 @@ What about when new data arrives, and you have to re-render all the items in a t
                     -- Diff your data, not the DOM.    
 
     ensureTodoItem i = ensureNode "li" [["class" (checkedClass i.done)]] i.text
+
+## What about when two far away parts of the UI depend on the same data?
+
+Say like TODO list and counts both depend on the same Array TodoItem 
+
+# Data
+
+component :: data -> Array DOMActions
+
+# Login form example
+
+This one can be quite complex with:
+- Validation while you type (triggers after first key in input)
+- Form submission, with error messages
+
+# Usability
+
+- Can I use it from the Chrome console? 😵
