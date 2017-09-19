@@ -7,7 +7,7 @@ build: $(JSBUNDLE) $(HTMLBUNDLE)
 
 watch:
 	rm -f $(JSBUNDLE)
-	make build PULP_OPTS='--watch --then "osascript -e \"tell application \\\"Google Chrome\\\" to reload active tab of window 1\"" --else "say Oops"'
+	make build PULP_OPTS='--watch --then "make $(HTMLBUNDLE); say ok; osascript -e \"tell application \\\"Google Chrome\\\" to reload active tab of window 1\"" --else "say Oops"'
 
 $(JSBUNDLE): bower_components $(shell find src)
 	pulp $(PULP_OPTS) browserify --optimise --source-map m --to $@
