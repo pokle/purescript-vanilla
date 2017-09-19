@@ -47,3 +47,7 @@ This one can be quite complex with:
 # Usability
 
 - Can I use it from the Chrome console? 😵
+    - What are purescript source maps like? 
+        - Not supported yet https://github.com/purescript/purescript/issues/2096
+        - But you can just use webpack apparently https://github.com/ethul/purs-loader
+            - And it gives you webpack dev server with hot reloading

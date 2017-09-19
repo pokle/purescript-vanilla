@@ -5,7 +5,7 @@ HTMLBUNDLE := output/index.html
 build: $(JSBUNDLE) $(HTMLBUNDLE)
 
 $(JSBUNDLE): bower_components $(shell find src)
-	pulp browserify --to $@
+	pulp browserify --optimise --source-map m --to $@
 
 $(HTMLBUNDLE): src/index.html
 	cp $^ $@
