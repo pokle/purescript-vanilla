@@ -1,12 +1,11 @@
 module Main where
 
-import Prelude
+import Prelude (Unit, discard, (>>=))
 import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE)
 import MiniDOM
 
 
-main :: forall e. Eff (console :: CONSOLE | e) Unit
+main :: forall eff. Eff ( dom :: DOM | eff ) Unit
 main = do
   clog "Hello Space sailor"
   getElementById "app" >>= clog

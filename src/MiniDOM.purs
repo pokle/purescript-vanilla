@@ -1,9 +1,9 @@
 module MiniDOM where
   
 import Prelude (Unit)
-import Control.Monad.Eff (Eff)
--- import Control.Monad.Eff.Console (CONSOLE)
+import Control.Monad.Eff (Eff, kind Effect)
 
 foreign import data DOMElement :: Type
-foreign import clog :: forall eff t . t -> Eff (t :: DOMElement | eff) Unit
+foreign import data DOM :: Effect
+foreign import clog :: forall eff t . t -> Eff (dom :: DOM | eff) Unit
 foreign import getElementById :: forall eff . String -> Eff (eff) DOMElement
