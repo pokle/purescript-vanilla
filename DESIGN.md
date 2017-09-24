@@ -9,6 +9,8 @@
         - server: Generate a string (for a quick js-less initial render, for crawlers)
         - browser: Interact with the DOM (Event listeners, modify the DOM)
 
+- Connection this all sounds like D3! https://d3js.org
+
 
 # DOM modifications
 Only need to happen in the browser. Server side code only needs to render a string.
