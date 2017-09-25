@@ -1,4 +1,4 @@
-module MiniDOM where
+module Vanilla.DOM where
   
 import Prelude (Unit)
 import Data.Maybe

@@ -1,11 +1,9 @@
 module Main where
 
-import Prelude (Unit, unit, discard, (>>=))
+import Prelude (Unit, discard, (>>=))
 import Control.Monad.Eff (Eff)
-import Data.Functor
-import Control.Bind
-import Data.Maybe
-import MiniDOM
+import Data.Maybe (Maybe(..))
+import Vanilla.DOM (DOM, DOMElement, clog, getElementById, setInnerHTML)
 
 walk :: ∀ eff. Maybe DOMElement -> Eff ( dom :: DOM | eff ) Unit
 walk (Just d) = setInnerHTML "Walk the path" d
@@ -18,6 +16,3 @@ main = do
   getElementById "app" >>= clog
   getElementById "non-existent" >>= clog
   getElementById "app" >>= walk
-  
-  
-

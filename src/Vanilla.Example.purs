@@ -1,6 +1,6 @@
-module Data.Vanilla.Example (ensureTodoItems) where
+module Vanilla.Example (ensureTodoItems) where
 
-import Data.Vanilla
+import Vanilla
 import Data.Array (concat, difference)
 import Data.Functor (map)
 -- import Data.Eq (Eq)
