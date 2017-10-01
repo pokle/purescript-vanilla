@@ -1,4 +1,4 @@
-module Vanilla.Example (ensureTodoItems) where
+module Vanilla.Example (addExample) where
 
 import Vanilla
 import Data.Array (concat, difference)
@@ -24,4 +24,5 @@ ensureTodoItem todoItem =
     EnsureElemExists (ElemByTagId "li" todoItem.id)
 
 
+addExample :: Array Mod
 addExample = ensureTodoItems [{id:"1",text:"H"}] []

@@ -1,3 +1,5 @@
+-- Helps you take your Vanilla to the DOM in a browser
+
 module Vanilla.DOM where
   
 import Prelude (Unit)
