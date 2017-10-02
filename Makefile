@@ -13,6 +13,7 @@ $(JSBUNDLE): bower_components $(shell find src)
 	pulp $(PULP_OPTS) browserify --optimise --source-map m --to $@
 
 $(HTMLBUNDLE): src/index.html
+	mkdir -p $$(dirname "$@")
 	cp $^ $@
 
 bower_components: bower.json
