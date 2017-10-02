@@ -10,6 +10,7 @@ type Todo = { id :: String, text :: String }
 -- instance eqTodo :: Eq Todo where
 --   eq a b = 
 
+ids :: Array Todo -> Array String
 ids ts = map (\t -> t.id) ts
 
 
@@ -20,6 +21,7 @@ ensureTodoItems newItems oldItems =
         , map EnsureElemDoesNotExist (map ElemById ((ids oldItems) `difference` (ids newItems)))
         ]
 
+ensureTodoItem :: forall eff. { id :: String | eff } -> Mod
 ensureTodoItem todoItem =
     EnsureElemExists (ElemByTagId "li" todoItem.id)
 
