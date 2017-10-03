@@ -7,5 +7,13 @@ I want to see if I can get fast purescript typesafe user interfaces by going str
 
 ## Trying it out
 - Ensure you have the purescript essentials installed globally - pulp, bower 
+
+Browser examples:
 - run `make examples`
 - Open one of the examples listed in the output.
+
+Nodejs examples:
+```
+$ node -e "require('./output/Examples.Log/index.js').main()"
+Hello there, this is a log message.
+```
