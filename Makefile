@@ -1,16 +1,16 @@
-
-JSBUNDLE   := output/index.js
-HTMLBUNDLE := output/index.html
 PULP_OPTS := 
 
-build: $(JSBUNDLE) $(HTMLBUNDLE)
+build: examples
 
 watch:
-	rm -f $(JSBUNDLE)
 	make build PULP_OPTS='--watch --then "make $(HTMLBUNDLE); say ok; osascript -e \"tell application \\\"Google Chrome\\\" to reload active tab of window 1\"" --else "say Oops"'
 
-$(JSBUNDLE): bower_components $(shell find src)
-	pulp $(PULP_OPTS) browserify --optimise --source-map m --to $@
+examples: $(shell ls src/Examples/ | sed 's/^/dist\/example-/')
+
+dist/example-%: bower_components $(shell find src)
+	mkdir -p "$@"
+	cp src/Examples/$*/*.html "$@"
+	pulp $(PULP_OPTS) browserify --optimise --source-map m --main Examples.$* --to $@/$*.js
 
 $(HTMLBUNDLE): src/index.html
 	mkdir -p $$(dirname "$@")
@@ -21,9 +21,9 @@ bower_components: bower.json
 	touch $@
 
 clean:
-	rm -rf output
+	rm -rf output dist
 
 deepclean: clean
 	rm -rf bower_components
 
-.PHONY: clean deepclean build
+.PHONY: clean deepclean build examples

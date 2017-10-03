@@ -4,7 +4,7 @@ var Data_Maybe = require('../Data.Maybe')
 
 exports.clog = function(s) {
   return function() {
-    console.log('|-<*>-| ', s);
+    console.log(s);
     return {};
   };
 };
