@@ -14,6 +14,7 @@ Browser examples:
 
 Nodejs examples:
 ```
+$ make
 $ node -e "require('./output/Examples.Log/index.js').main()"
 Hello there, this is a log message.
 ```
