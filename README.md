@@ -7,5 +7,5 @@ I want to see if I can get fast purescript typesafe user interfaces by going str
 
 ## Trying it out
 - Ensure you have the purescript essentials installed globally - pulp, bower 
-- run `make`
-- Open output/index.html in a browser
+- run `make examples`
+- Open one of the examples listed in the output.
