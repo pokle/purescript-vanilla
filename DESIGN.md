@@ -11,6 +11,8 @@
 
 - Connection this all sounds like D3! https://d3js.org
 
+# Influences
+- I really like how Haxl batches updates with a cache. Infact its api seems to only batch.
 
 # DOM modifications
 Only need to happen in the browser. Server side code only needs to render a string.
