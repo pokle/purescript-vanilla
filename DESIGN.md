@@ -1,17 +1,19 @@
 # Design
 
-- Leverage the DOM - it has come a long way, and is performant.
-    - Don't abstract it to a virtual dom
-    - Encourage safe modifications of the dom rather than data diffing.
-- Isomorphic apps
-    - Yes, the DOM isn't available on the server. But that doesn't mean we should force the usage of a Virtual DOM on the client. That in my opinion is an extra layer of abstraction.
-    - Instead, do what's best in the right environment:
-        - server: Generate a string (for a quick js-less initial render, for crawlers)
-        - browser: Interact with the DOM (Event listeners, modify the DOM)
+- Use recursive data types to represent your component hierarchy. 
+- Use typeclasses to give your data structures abilities - such as manipulating the dom, rendering to a HTML string, or even generate CSS.
+- What about IO actions returned by the manipulation or rendering functions?
 
-- Connection this all sounds like D3! https://d3js.org
+- Rendering in a web browser
+    - Don't abstract the DOM to a virtual dom
+    - Encourage safe modifications of the dom rather than data diffing. 
+    - Diff your data, not your DOM.
+- Rendering on the web server
+    - Stream your components to a string buffer for performance. This forces a particular order of traversal.
 
 # Influences
+- Vanilla JS is performant because the DOM is performant now.
+- This all sounds like D3! https://d3js.org
 - I really like how Haxl batches updates with a cache. Infact its api seems to only batch.
 
 # DOM modifications
